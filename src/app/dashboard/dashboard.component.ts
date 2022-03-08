@@ -12,9 +12,12 @@ export class DashboardComponent implements OnInit {
   constructor(public servc: LogoutLaravelService, private router: Router) { }
   NameUser: any;
   InfoUser :any;
+  RoleUser: any;
   ngOnInit(): void {
     this.NameUser =localStorage.getItem('InfoUser');
     console.log("infouser",this.NameUser );
+    this.RoleUser=localStorage.getItem('RoleUser');
+    console.log("roleUser",this.RoleUser );
   }
   LogoutUser():void{
    let token =localStorage.getItem('tokenUser');
@@ -22,6 +25,7 @@ export class DashboardComponent implements OnInit {
      console.log(r)
     localStorage.removeItem("tokenUser");
     localStorage.removeItem("InfoUser");
+    localStorage.removeItem("RoleUser");
     this.router.navigate(['/login']);
   }, (error) => {
     console.log("respuesta error logout", error);

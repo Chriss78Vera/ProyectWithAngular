@@ -1,5 +1,7 @@
 export interface UserLogin{
 
-    login_field: string, 
-    password: string, 
+    login_field: string,
+    password: string,
+
+
 }

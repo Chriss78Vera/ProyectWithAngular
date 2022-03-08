@@ -27,7 +27,7 @@ export class LoginInterfazeComponent implements OnInit {
       email: new FormControl(''),
       password: new FormControl(''),
     });
-    
+
   }
 
   checkLocalStorage(){
@@ -40,7 +40,6 @@ export class LoginInterfazeComponent implements OnInit {
   lginComponent() {
     console.log(this.myFormLogin.value.email);
     console.log(this.myFormLogin.value.password);
-    console.log("hola que tal");
     const login_field = this.myFormLogin.value.email;
     const password = this.myFormLogin.value.password;
     //const description = this.myFormWard.value.descriptionF;
@@ -48,6 +47,7 @@ export class LoginInterfazeComponent implements OnInit {
       this.ResponseTrue = r.token;
       localStorage.setItem('tokenUser', this.ResponseTrue);
       localStorage.setItem('InfoUser', r.user.name);
+      localStorage.setItem('RoleUser', r.user.role);
       console.log(r.user)
       this.MessageError = "";
       this.myFormLogin = new FormGroup({
